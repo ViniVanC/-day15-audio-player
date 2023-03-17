@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  background: #e0e0e0;
+  color: #003f3f;
+  padding: 0 15px;
+}
+
+.audio-player {
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 280px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #a6a6a6, -5px -5px 10px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .img-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid transparent;
+    box-shadow: 5px 5px 10px #a6a6a6, -5px -5px 10px #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.anim {
+      animation: rotate-img 20s linear infinite;
+    }
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+@keyframes rotate-img {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      padding: 0;
+      background-color: #e0e0e0;
+      border-radius: 50px;
+      box-shadow: 5px 5px 10px #a6a6a6, -5px -5px 10px #ffffff;
+      height: 20px;
+      cursor: col-resize;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        box-shadow: 5px 5px 10px #a6a6a6, -5px -5px 10px #ffffff;
+        transition: all 0.3s;
+
+        @media (min-width: 768px) {
+          &:hover,
+          &:focus {
+            scale: 1.2;
+          }
+        }
+
+        &:active {
+          scale: 0.9;
+        }
+      }
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      font-weight: 700;
+    }
+  }
+
+  .controls-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      color: #003f3f;
+      border-radius: 50%;
+      background-color: transparent;
+      box-shadow: 5px 5px 10px #a6a6a6, -5px -5px 10px #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        &:hover,
+        &:focus {
+          scale: 1.2;
+        }
+      }
+
+      &:active {
+        scale: 0.9;
+      }
+    }
+  }
+}
